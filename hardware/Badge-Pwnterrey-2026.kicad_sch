@@ -2765,6 +2765,285 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Switch:SW_DPDT_x2"
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW2"
+				(at -1.778 -3.429 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "On"
+				(at 0 4.9276 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Footprints:MSK12C02"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Switch, dual pole double throw, separate symbols"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "manf#" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "LCSC#" "C431540"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "switch dual-pole double-throw DPDT spdt ON-ON"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "SW*DPDT*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SW_DPDT_x2_0_0"
+				(circle
+					(center -2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 -2.54)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 -6.35)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SW_DPDT_x2_0_1"
+				(polyline
+					(pts
+						(xy -1.524 0.254) (xy 1.651 2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 2.54)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SW_DPDT_x2_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -6.35 180)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "SW_DPDT_x2_2_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Switch:SW_Push"
 			(pin_numbers
 				(hide yes)
@@ -3435,6 +3714,12 @@
 		(uuid "57326da6-c7ca-4bce-91d2-951e223ea30c")
 	)
 	(junction
+		(at 124.46 153.67)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6096d53a-7350-4394-a787-026af8192f85")
+	)
+	(junction
 		(at 43.18 175.006)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3457,12 +3742,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "90d9055a-e074-4619-92f1-d0d500b45f54")
-	)
-	(junction
-		(at 124.46 153.67)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9b574fdf-d6f6-407c-b2a1-f5bea552bc95")
 	)
 	(junction
 		(at 128.27 153.67)
@@ -3561,6 +3840,10 @@
 	(no_connect
 		(at 38.1 55.88)
 		(uuid "d3a5d397-d5ae-4fa0-a0b7-6910bac9f35f")
+	)
+	(no_connect
+		(at 109.22 151.13)
+		(uuid "e50ef29d-839a-4e8a-b1a8-ce9acfe8f2de")
 	)
 	(no_connect
 		(at 38.1 73.66)
@@ -3878,6 +4161,16 @@
 	)
 	(wire
 		(pts
+			(xy 119.38 153.67) (xy 124.46 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "55d8cf62-8db1-4c98-8e80-5b50c8344949")
+	)
+	(wire
+		(pts
 			(xy 220.98 45.974) (xy 213.36 45.974)
 		)
 		(stroke
@@ -3978,7 +4271,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 153.67) (xy 124.46 153.67)
+			(xy 100.33 156.21) (xy 109.22 156.21)
 		)
 		(stroke
 			(width 0)
@@ -4135,6 +4428,16 @@
 			(type default)
 		)
 		(uuid "95b017cb-bcfb-4570-b409-b3bd1393c4c3")
+	)
+	(wire
+		(pts
+			(xy 107.95 147.32) (xy 109.22 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "984cb9ce-27ee-4df2-8e1c-081810f2952a")
 	)
 	(wire
 		(pts
@@ -4488,7 +4791,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 151.13) (xy 120.65 153.67)
+			(xy 100.33 153.67) (xy 100.33 156.21)
 		)
 		(stroke
 			(width 0)
@@ -4635,6 +4938,16 @@
 			(justify right bottom)
 		)
 		(uuid "e38e961d-f300-4fee-b841-98ea80ad43cf")
+	)
+	(label "GND"
+		(at 107.95 147.32 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f1e36493-6885-45d1-9b8a-bf473274980e")
 	)
 	(label "SCL"
 		(at 259.08 128.27 270)
@@ -7311,7 +7624,7 @@
 	)
 	(symbol
 		(lib_id "power:VBUS")
-		(at 120.65 151.13 0)
+		(at 100.33 153.67 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7319,7 +7632,7 @@
 		(dnp no)
 		(uuid "b2efdc28-ca30-44d7-a66e-c8e7dd45c576")
 		(property "Reference" "#PWR09"
-			(at 120.65 154.94 0)
+			(at 100.33 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7328,7 +7641,7 @@
 			)
 		)
 		(property "Value" "VBUS"
-			(at 121.031 146.7358 0)
+			(at 100.711 149.2758 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7336,7 +7649,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 120.65 151.13 0)
+			(at 100.33 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7345,7 +7658,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 120.65 151.13 0)
+			(at 100.33 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7354,7 +7667,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 120.65 151.13 0)
+			(at 100.33 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8335,6 +8648,106 @@
 			(project "Badge-Pwnterrey-2026"
 				(path "/e3b2b1fe-149a-4e04-8ccb-2dcccbdaccab"
 					(reference "#PWR07")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_DPDT_x2")
+		(at 114.3 153.67 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f177384e-6164-4f22-ad7a-620135460606")
+		(property "Reference" "SW3"
+			(at 116.078 150.241 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "On"
+			(at 114.3 158.5976 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Footprints:MSK12C02"
+			(at 114.3 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 114.3 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 114.3 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C431540"
+			(at 114.3 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manf#" ""
+			(at 114.3 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "08a79c64-079a-4582-8be9-180425bc900f")
+		)
+		(pin "2"
+			(uuid "6e1a255f-1e5b-41a7-a7ba-55786b616fba")
+		)
+		(pin "3"
+			(uuid "17bd53f3-d7ad-47ea-8c5c-89de6c814444")
+		)
+		(pin "4"
+			(uuid "89d6104a-fc18-4c50-8734-f6a66d37f54e")
+		)
+		(pin "5"
+			(uuid "6d74a65b-6c8a-41ae-a4c8-8a951b53408f")
+		)
+		(pin "6"
+			(uuid "957dc641-8872-456e-b86e-e8ccbff5264a")
+		)
+		(pin "4"
+			(uuid "17f51abf-a3ae-4c1b-a5ae-f3ce7825b903")
+		)
+		(instances
+			(project "Badge-Pwnterrey-2026"
+				(path "/e3b2b1fe-149a-4e04-8ccb-2dcccbdaccab"
+					(reference "SW3")
 					(unit 1)
 				)
 			)
