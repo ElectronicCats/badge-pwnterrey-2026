@@ -4,6 +4,13 @@
 	(generator_version "9.0")
 	(uuid "e3b2b1fe-149a-4e04-8ccb-2dcccbdaccab")
 	(paper "A4")
+	(title_block
+		(title "Badge-Pwnterrey-2026")
+		(date "2026-03-23")
+		(rev "v1.0")
+		(company "Electronic Cats")
+		(comment 1 "Lizeth Gallegos Martínez")
+	)
 	(lib_symbols
 		(symbol "2025-07-29_21-59-33:NT3H2111W0FHK"
 			(pin_names
