@@ -45,8 +45,8 @@
 		(allow_soldermask_bridges_in_footprints no)
 		(tenting front back)
 		(pcbplotparams
-			(layerselection 0x00000000_00000000_55555555_5755f5ff)
-			(plot_on_all_layers_selection 0x00000000_00000000_00000000_00000000)
+			(layerselection 0x00000000_00000000_55555555_575555d0)
+			(plot_on_all_layers_selection 0x00000000_00000000_00000000_02000080)
 			(disableapertmacros no)
 			(usegerberextensions no)
 			(usegerberattributes yes)
@@ -77,11 +77,11 @@
 			(sketchdnponfab yes)
 			(crossoutdnponfab yes)
 			(subtractmaskfromsilk no)
-			(outputformat 1)
+			(outputformat 5)
 			(mirror no)
-			(drillshape 1)
+			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "")
+			(outputdirectory "../../../../Downloads/")
 		)
 	)
 	(net 0 "")
@@ -202,7 +202,7 @@
 				)
 			)
 		)
-		(property "LCSC#" "C57369"
+		(property "LCSC#" "C49326134"
 			(at 85.671 268.331 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -569,7 +569,7 @@
 				)
 			)
 		)
-		(property "LCSC#" "C57369"
+		(property "LCSC#" "C49326134"
 			(at 82.0478 271.9542 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -597,7 +597,7 @@
 		(path "/4518ae08-6349-4076-b1a6-9003e5b2a047")
 		(sheetname "/")
 		(sheetfile "Badge-Pwnterrey-2026.kicad_sch")
-		(attr through_hole)
+		(attr through_hole dnp)
 		(fp_line
 			(start -1.33 24.19)
 			(end 1.33 24.19)
@@ -1639,7 +1639,7 @@
 				)
 			)
 		)
-		(property "LCSC#" "C492407"
+		(property "LCSC#" "C49326132"
 			(at 41.41 231.27 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -1667,7 +1667,7 @@
 		(path "/2a214b0e-8413-44f0-aadd-300983aacda4")
 		(sheetname "/")
 		(sheetfile "Badge-Pwnterrey-2026.kicad_sch")
-		(attr through_hole)
+		(attr through_hole dnp)
 		(fp_line
 			(start -1.33 19.11)
 			(end 1.33 19.11)
@@ -1983,7 +1983,7 @@
 				)
 			)
 		)
-		(property "LCSC#" "C492407"
+		(property "LCSC#" "C49326132"
 			(at 45.01 227.67 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2830,7 +2830,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/1810170519_PANASONIC-ERJ3RBD5101V_C191782.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -8720,7 +8720,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/1810170519_PANASONIC-ERJ3RBD5101V_C191782.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -12197,7 +12197,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/1912111437_CCTC-TCC0603COG100J500CT_C376764.pdf"
+		(property "Datasheet" ""
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -13379,7 +13379,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/1912111437_CCTC-TCC0603COG100J500CT_C376764.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -13625,7 +13625,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/1912111437_CCTC-TCC0603COG100J500CT_C376764.pdf"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
