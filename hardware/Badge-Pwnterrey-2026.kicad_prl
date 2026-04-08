@@ -13,7 +13,7 @@
       "shapes": 1.0,
       "tracks": 1.0,
       "vias": 1.0,
-      "zones": 0.36000001430511475
+      "zones": 0.3499999940395355
     },
     "selection_filter": {
       "dimensions": true,
@@ -50,7 +50,7 @@
       "conflict_shadows",
       "shapes"
     ],
-    "visible_layers": "00000000_00000000_00000000_aa00a287",
+    "visible_layers": "00000000_00000000_00000000_aa02a287",
     "zone_display_mode": 0
   },
   "git": {
@@ -90,14 +90,14 @@
     "col_widths": [
       186,
       171,
-      112,
+      113,
       125,
       118,
       131,
       131,
-      132,
-      112,
-      112
+      133,
+      113,
+      113
     ],
     "custom_group_rules": [],
     "expanded_rows": [],
