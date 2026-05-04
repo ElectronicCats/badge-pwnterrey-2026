@@ -184,6 +184,8 @@ Utilizando el projecto de este usuario puedes agregar estadísticas del proyecto
 https://github.com/anuraghazra/github-readme-stats
 
 **NOTA**:Son pocas las tarjetas que puedes utilizar con el proyecto de este usuario para repositorios ya que son más dirigidos a perfiles de GitHub.
+* **Aqui está la UI para poder utilizar tu Badge a su máxima potencia:** https://github.com/ElectronicCats/marauder-ui-pro  
+* **Si quieres reprogramar tu Badge a fondo aqui está el Fw:** https://github.com/ElectronicCats/badge-pwnterrey-2026
  
 ## Maintainer
 
