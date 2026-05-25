@@ -191,9 +191,8 @@ A continuación se detalla la lista de comandos disponibles en el intérprete de
 | :--- | :--- | :--- |
 | `attack` | `attack -t <deauth/beacon/probe/rickroll>` | Inicia ataque de desautenticación, spam de beacons, etc. |
 | `blespam` | `blespam -t <apple/google/samsung/windows/all>`| Inicia campañas de spam publicitario Bluetooth BLE. |
-| `sniffbt` | `sniffbt [-t] <airtag/flipper>` | Realiza escaneo e identificación de dispositivos Bluetooth específicos. |
 | `wardrive` | `wardrive [-s]` | Inicia el modo Wardriving clásico sincronizado con GPS. |
-| `btwardrive`| `btwardrive [-c]` | Inicia el modo Wardriving Bluetooth sincronizado con GPS. |
+
 
 ***
 
