@@ -1,6 +1,6 @@
 [README_C5.md](https://github.com/user-attachments/files/28228241/README_C5.md)
 
-# ESP32 Marauder - Edición Especial ESP32-C5 (Headless)
+# Badge PWNTerrey
 
 El **ESP32 Marauder C5 Addon** es un dispositivo de hardware abierto y portátil diseñado para la auditoría de redes inalámbricas y seguridad de radiofrecuencia (WiFi, Bluetooth y NFC). Esta versión utiliza el potente y nuevo chip **ESP32-C5 (Arquitectura RISC-V)**, configurada específicamente para operar en modo **"Headless"** (sin pantalla), permitiendo la interacción total mediante consola serie (CLI) e integrando sensores y emuladores como NFC y GPS externo.
 
