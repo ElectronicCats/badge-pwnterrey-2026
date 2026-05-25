@@ -1,201 +1,207 @@
+[README_C5.md](https://github.com/user-attachments/files/28228241/README_C5.md)
 
-# Plantilla para proyectos de ingeniería
+# ESP32 Marauder - Edición Especial ESP32-C5 (Headless)
 
-Esta plantilla es la base para cualquier proyecto desarrollado en Electronic Cats.
+El **ESP32 Marauder C5 Addon** es un dispositivo de hardware abierto y portátil diseñado para la auditoría de redes inalámbricas y seguridad de radiofrecuencia (WiFi, Bluetooth y NFC). Esta versión utiliza el potente y nuevo chip **ESP32-C5 (Arquitectura RISC-V)**, configurada específicamente para operar en modo **"Headless"** (sin pantalla), permitiendo la interacción total mediante consola serie (CLI) e integrando sensores y emuladores como NFC y GPS externo.
 
-Automáticamente, se generarán todos los archivos necesarios para la compra de material, fabricación y ensamble.
+***
 
-Así como documentos complementarios para un proyecto completo.
+## 🚀 Características Principales
 
-  
+### 📶 Conectividad Inalámbrica Avanzada
+- **Procesador ESP32-C5**: Chip de doble banda Wi-Fi 6 (2.4 GHz y 5 GHz) y Bluetooth 5 (LE) integrado.
+- **Auditoría WiFi**: Soporte para escaneo de APs, rastreo de estaciones, sniffing de paquetes, inyección de tramas de desautenticación, spam de beacons y captura de handshakes.
+- **Bluetooth (BLE)**: Capacidad para ejecutar ataques de spam BLE (`blespam`).
 
-> Este README.md puede ser utilizado como plantilla para documentación, de esta manera se puede incluir generalidades, recomendaciones y todo lo necesario para entender el proyecto.
+### 🏷️ Periféricos y Sensores Integrados
+- **Emulador NFC (NT3H2111)**: Chip NTAG I2C 2k que permite actuar en **Modo Tarjeta**. El ESP32 emula una etiqueta pasiva para transferir datos NDEF (URLs, textos, vCards, redes WiFi) a teléfonos móviles o Flipper Zero.
+- **Receptor GPS**: Interfaz serial dedicada para capturar coordenadas geográficas en tiempo real (Wardriving) y parsear sentencias NMEA.
 
-  
+### ⚙️ Optimización Headless (Sin Pantalla)
+- **Bajo Consumo**: Al eliminar pantallas TFT/OLED y botones físicos, se reduce la huella energética y se maximiza la estabilidad.
+- **Control Serial Total**: Una robusta interfaz de comandos (CLI) que permite controlar el 100% de las funciones del dispositivo.
 
-## ¿Cómo utilizar esta plantilla?
+***
 
-Para comenzar un nuevo proyecto, presiona el botón de "Use this template".
+## 📋 Especificaciones Técnicas
 
-  
+| Componente | Especificación |
+| :--- | :--- |
+| **Microcontrolador** | ESP32-C5 ECO1 (Arquitectura RISC-V de 32 bits) |
+| **Wi-Fi** | Doble banda 2.4 GHz y 5 GHz (Wi-Fi 6 / 802.11ax) |
+| **Bluetooth** | Bluetooth 5.0 (Low Energy - LE) |
+| **NFC** | Chip **NT3H2111 (NTAG I2C 2k)** emulador de etiqueta pasiva |
+| **GPS** | Interfaz serie dedicada para receptor GPS externo (UART1) |
+| **Interfaz de Control**| CLI por Puerto Serie USB (115200 baudios) |
+| **Estabilidad** | PSRAM desactivada, Flash configurada a 40MHz |
 
-### KiCad
+***
 
-Para esta plantilla, el hardware debe de ser diseñado y/o desarrollado en KiCad 9.
+## 🔌 Interfaces y Pinout del ESP32-C5
 
-Al término del diseño del proyecto, KiCad deberá de generar los siguientes archivos:
+El circuito integrado ESP32-C5 en su configuración Marauder utiliza los siguientes pines clave:
 
-  
+### 🌐 Conexión NFC (I2C)
+El chip NTAG NT3H2111 está conectado a través del bus I2C:
+- **SDA**: GPIO 2 (Pin 4)
+- **SCL**: GPIO 3 (Pin 5)
+- **Field Detect (FD)**: GPIO 6 (Pin 8) *(Detecta cuando un lector NFC externo energiza el campo inductivo)*
 
-- nombre_del_proyecto.kicad_pro
+### 🛰️ Conexión GPS (UART1)
+La comunicación con el módulo GPS se realiza mediante los pines:
+- **GPS TX (MCU)**: GPIO 4 *(Hacia el pin RX del GPS)*
+- **GPS RX (MCU)**: GPIO 5 *(Desde el pin TX del GPS)*
+- **GPS ON/Power**: GPIO 7 *(Control de encendido del módulo GPS)*
 
-- nombre_de_la_pcb.kicad_pcb
+***
 
-- nombre_del_esquematico.kicad_sch
+## ⚡ Primeros Pasos
 
-  
+### 1. Alimentación y Conexión
+Puedes alimentar y controlar tu adaptador de dos formas:
+- **Conexión Directa USB**: Conéctalo a tu computadora usando un cable USB-C. El puerto creará un puerto COM serial.
+- **Integración con Flipper Zero**: Conectado como un Addon GPIO al Flipper Zero, alimentado directamente desde los pines de 3.3V/5V del Flipper y controlado desde su aplicación de terminal.
 
-Además de archivos temporales, los cuales Git ignora al momento de cualquier push.
+### 2. Abrir la Terminal Serial
+El dispositivo se comunica a **115200 baudios**, sin control de flujo (8N1).
 
-[Archivos ignorados](.gitignore)
+#### 🐧 Linux / macOS
+Usa el comando `screen` o `minicom`. Primero identifica el puerto (`/dev/ttyUSBX` o `/dev/ttyACM0`):
+```bash
+# Con screen (para salir: Ctrl+A, luego K)
+screen /dev/ttyUSB0 115200
 
-  
-
-Estos archivos deberán ser guardados dentro de la carpeta de [hardware](hardware/).
-
-  
-
-### Configuración de automatización
-
-Los workflows de GitHub Actions detectan automáticamente los archivos de KiCAD en el directorio `hardware/`. No es necesario modificar ningún archivo de configuración.
-
-Los workflows buscarán automáticamente:
-- El primer archivo `.kicad_pcb` encontrado en `hardware/`
-- El archivo `.kicad_sch` que coincida con el nombre del PCB
-- Si no hay coincidencia exacta, usará el primer `.kicad_sch` disponible
-
-**Nota**: Asegúrate de que los archivos de KiCAD estén guardados en la carpeta `hardware/` con sus extensiones correctas (`.kicad_pro`, `.kicad_pcb`, `.kicad_sch`).
-
-  
-
-### Activar/desactivar DRC y ERC
-
-Las opciones de DRC y ERC están siempre activas predeterminadamente. Para desactivarlas, se deberá modificar el archivo [electroniccats_sch.kibot.yaml](hardware/electroniccats_sch.kibot.yaml) cambiando las siguientes líneas:
-
-```yaml
-
-run_erc: false  # Cambiar a false para desactivar ERC
-
-run_drc: false  # Cambiar a false para desactivar DRC
-
+# Con minicom
+sudo minicom -b 115200 -D /dev/ttyUSB0
 ```
 
-**Workflows disponibles:**
-- **DRC y ERC**: Se ejecutan automáticamente en cada `push` y `pull_request` para validar el diseño
-- **Archivos de fabricación**: Se generan automáticamente cuando se crea un `release` publicado
+#### 🪟 Windows
+Usa clientes como **PuTTY** o **TeraTerm**:
+- **Puerto**: COMx (Ver en administrador de dispositivos)
+- **Baudrate**: 115200
+- **Data bits**: 8
+- **Parity**: None
+- **Stop bits**: 1
+- **Flow control**: None
 
-## Creación de Release
+***
 
-Al terminar el proyecto y su revisión, se publicará el primer Release.
+## 🏷️ Control del Emulador NFC
 
-Para crear un nuevo Release, presiona el botón de "Create a new release".
+El módulo NFC funciona exclusivamente en **modo emulación de etiqueta (Tag)**. No es un lector; actúa como una tarjeta inteligente pasiva que almacena registros NDEF.
 
-Una vez creado el Release, podrás ver la creación de los archivos en la sección de Actions.
-
-Al terminar, los archivos serán generados en el mismo release.
-
-## Elementos para mejorar tu `Readme.md`
-
-Los archivos `Readme.md` se crean con el propósito de hacer visualmente agradable un repositorio para los usuarios que visiten nuestro proyecto, puedes utilizar algunos de los siguientes elementos.
-
-### Código
-Quoting code, como lo dice su nombre, se utiliza para añadir código y que se separe del texto plano. Debes de agregar el codigo dentro de ` ``` ```` ` , ademas si agregas el nombre del lenguaje inmediatamente despues de las primeras ` ``` ` las funciones se pondran de color diferenciandolas del resto del codigo. Aquí algunos ejemplos. Puedes encontrar los lenguajes aquí:
-https://github.com/github/linguist/blob/master/vendor/README.md
-```sh
-192.168.0.1
-cd Downloads
-```
-  ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
-
-### Hipervínculos
-
-Usa hipervínculos o links para redirigir a los usuarios a páginas donde puedan conocer más acerca de algún tema o concepto en concreto, hay dos formas de hacer esto:
-
-- [Agregando el link en seguida](https://github.com/ElectronicCats/Template-Project-KiCAD-CI) - Con esta forma deberas de seguir el siguiente formato `[Texto](www.url.com)`. El texto que se mostrará en la página principal del Readme será el que se encuentra dentro de los corchetes y el link de la página deberá de ir de manera inmediata a los corchetes dentro de paréntesis.
-
-- [Agregando el link como referencia] - Al igual que otro tipo de formatos de referencia en este agregas el texto que se mostrará en la página principal del repositorio dentro de corchetes `[Texto]` y al final de tu archivo (de preferencia) agregas la referencia de la siguiente manera: `[Texto]:<www.url.com>`, este no se mostrara en el archivo por lo que es una buena forma de mantener un formato y un orden.  
-
-### Tablas
-
-Las tablas que todos conocemos con filas y columnas. El formato para estas tablas se basa en el uso del símbolo `|`, entonces debes de encerrar las palabras como esto: `|Columna1|` (sin la posibilidad de dos | seguidos), para agregar más columnas basta con dar un espacio y repetir el formato, sin embargo, para añadir filas debes de hacer un salto de línea y repetir el formato de columnas, dejándonos una tabla como la siguiente:
-
-|Columna1|Columna2|
-|-|-|
-|Fila 1 Columna 1|Fila 2 Columna 2|
-
-Nota: Si agregas en la segunda fila guiones (-) harás que la primera fila se convierta en el encabezado de la tabla.
-
-### Imágenes
-Puedes añadir imágenes siempre y cuando estas estén en Internet, si quieres agregar una nueva imagen tambien la puedes arrastrar y soltar en el cuadro de texto (en caso de que edites tu `Readme.md`) directo desde GitHub, esto hará que se guarde tu imagen en una carpeta oculta dentro de tu repositorio.
-El formato para agregar imagenes es: `![](www.urlimagen.com)`
-Si requieres que al hacer click en tu imagen se redirija a otra pagina usa el siguiente formado `[![](www.urldeimagen.com)](https://www.urlaredirigir.com)`
-Es importante agregar `https://` , si no te enviara a una página de GitHub que probablemente no exista.
-
-[![](https://electroniccats.com/wp-content/uploads/2018/01/fav.png)](https://www.electroniccats.com)
-
-### Referencias
-Es posible que en la wiki hayas visto numeritos como este --->[^1], pero que significan?
-
-No son más que referencias que puedes hacer para hacer saltos de información e ir directo a la referencia haciendo click en el pequeño número.
-[^1]: Soy la referencia :))))
-
-### Emojis :trollface: :shipit:
-Solo escribe el código del emoji así: `:EMOJICODE:`.
-Aqui la lista de los [EMOJICODEs](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#github-custom-emoji)
-
-### Listas con checkbox
-Usa este formato:
-```
-- [x] GFM task list 1
-- [x] GFM task list 2
-- [ ] GFM task list 3
-    - [ ] GFM task list 3-1
-    - [ ] GFM task list 3-2
-    - [ ] GFM task list 3-3
-- [ ] GFM task list 4
-    - [ ] GFM task list 4-1
-    - [ ] GFM task list 4-2
+### 🔍 Diagnóstico e Información
+- **Escanear bus NFC**:
+  ```bash
+  nfc scan
   ```
-  Y tendras algo asi: 
-- [x] GFM task list 1
-- [x] GFM task list 2
-- [ ] GFM task list 3
-    - [ ] GFM task list 3-1
-    - [ ] GFM task list 3-2
-    - [ ] GFM task list 3-3
-- [ ] GFM task list 4
-    - [ ] GFM task list 4-1
-    - [ ] GFM task list 4-2
+  Realiza un escaneo de hardware (discovery) en los pares de pines del bus I2C para verificar la dirección del chip (`0x55` o `0x2A`).
+- **Leer contenido actual de la etiqueta**:
+  ```bash
+  nfc read
+  ```
+  Muestra en hexadecimal y ASCII los bloques del 1 al 8 grabados en la memoria del chip NFC.
 
-### Otros Elementos
+### ✍️ Escritura de Registros NDEF
+Puedes programar el emulador NFC para inyectar diferentes cargas útiles:
 
-![](https://img.shields.io/github/stars/ElectronicCats/Template-Project-KiCAD-CI?style=for-the-badge)
-![](https://img.shields.io/github/forks/ElectronicCats/Template-Project-KiCAD-CI?color=green&style=for-the-badge)
+- **🔗 Enlace Web (URL)**:
+  ```bash
+  nfc -u https://electroniccats.com
+  ```
+- **📝 Texto Plano**:
+  ```bash
+  nfc -t "Hola Hackers del ESP32-C5"
+  ```
+- **📇 Tarjeta de Contacto (vCard)**:
+  ```bash
+  nfc -v "Nombre,Telefono,Email"
+  # Ejemplo:
+  nfc -v "Electronic Cats,5551234567,info@electroniccats.com"
+  ```
+- **📶 Credenciales de Red WiFi**:
+  ```bash
+  nfc -w "SSID,Password,Autenticacion"
+  # Ejemplo:
+  nfc -w "MiRedSegura,Clave1234,WPA2"
+  ```
 
-Este tipo de indicadores nos pueden ayudar a identificar diferente información relacionada al proyecto, solo los debes de agregar como una imagen y en el URL  pegar el link correspondiente. 
-Los ejemplos de arriba fueron generados con la pagina: Shields.io , solo debes de asegurarte que son para GitHub y que tienen el formato `MarkDown`
+Una vez ejecutado el comando con éxito, cualquier dispositivo móvil o lector NFC (como un Flipper Zero) que se acerque al sensor detectará la etiqueta y ejecutará la acción (abrir el link, importar el contacto o conectarse al WiFi).
 
-- Badges,
-En caso de que necesites algun referente a alguna empresa o plataforma puedes usar esta pagina: https://dev.to/envoy_/150-badges-for-github-pnk
+***
 
-[![](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/electroniccats/?originalSubdomain=mx)
+## ⚙️ Configuración y Compilación de Firmware
 
-- Estadísticas
-Utilizando el projecto de este usuario puedes agregar estadísticas del proyecto como estas:
+Si deseas compilar o realizar modificaciones en el firmware, debes seguir estas recomendaciones específicas para el hardware ESP32-C5:
 
-![This repository Stats](https://github-readme-stats.vercel.app/api/pin?username=ElectronicCats&repo=Template-Project-KiCAD-CI&title_color=fff&icon_color=f9f9f9&text_color=9f9f9f&bg_color=151515)
+### 🛠️ Configuración en configs.h
+Asegúrate de que en el archivo [configs.h](file:///run/media/omaro/8C96D9BF96D9AA4A/ESP32Marauder/ESP32Marauder/esp32_marauder/configs.h) la definición activa para la placa sea:
+```cpp
+#define MARAUDER_FLIPPER_C5
+```
+Esta definición configurará automáticamente la ausencia de pantalla (`TFT_CS -1`), habilitará `HAS_BT`, `HAS_GPS` y `HAS_NFC` con sus respectivos mapeos de pines.
 
-https://github.com/anuraghazra/github-readme-stats
+### ⚠️ Parámetros de Compilación en Arduino IDE
+Debido al estado actual del soporte del chip, aplica las siguientes configuraciones de carga:
+- **Placa**: ESP32C5 Dev Module
+- **Arquitectura**: RISC-V (Compiler optimization)
+- **Flash Frequency**: **40MHz** (Recomendado para máxima estabilidad)
+- **Partition Scheme**: Minimal SPIFFS / No OTA (Para maximizar el espacio de programa y SPIFFS)
+- **PSRAM**: Desactivada (Disabled)
+- **Modo de Carga**: Inserte el dispositivo en modo Bootloader manteniendo presionado el botón Boot mientras conecta el USB si no es detectado automáticamente.
 
-**NOTA**:Son pocas las tarjetas que puedes utilizar con el proyecto de este usuario para repositorios ya que son más dirigidos a perfiles de GitHub.
-* **Aqui está la UI para poder utilizar tu Badge a su máxima potencia:** https://github.com/ElectronicCats/marauder-ui-pro  
-* **Si quieres reprogramar tu Badge a fondo aqui está el Fw:** https://github.com/ElectronicCats/badge-pwnterrey-2026
- 
-## Maintainer
+***
 
-<a
-href="https://github.com/sponsors/ElectronicCats">
+## ⌨️ Consola de Comandos Completa (CLI Reference)
 
-<img  src="https://electroniccats.com/wp-content/uploads/2020/07/Badge_GHS.png"  height="104" />
+A continuación se detalla la lista de comandos disponibles en el intérprete de comandos serial:
 
-</a>
+### 🛠️ Comandos de Administración
 
-Electronic Cats invests time and resources providing this open source design, please support Electronic Cats and open-source hardware by purchasing products from Electronic Cats!
+| Comando | Sintaxis | Descripción |
+| :--- | :--- | :--- |
+| `help` | `help` | Muestra la lista de comandos con su formato de ayuda. |
+| `info` | `info` | Muestra información del sistema, compilación y hardware. |
+| `reboot` | `reboot` | Reinicia el microcontrolador. |
+| `channel` | `channel [-s <canal>]` | Muestra o cambia el canal WiFi activo. |
+| `settings` | `settings [-s <setting> <enable/disable>]` | Muestra, modifica o reinicia (`-r`) los ajustes internos. |
+| `spiffs` | `spiffs [ls / read <file> / rm <file> / format]`| Administra la memoria flash interna (SPIFFS). |
+| `led` | `led -s <hex color> / -p <rainbow>` | Cambia el color del led de estado. |
 
-[Agregando el link como referencia]: <https://github.com/ElectronicCats/Template-Project-KiCAD-CI>
+### 📶 Auditoría WiFi (Sniffing & Scanning)
+
+| Comando | Sintaxis | Descripción |
+| :--- | :--- | :--- |
+| `scanap` | `scanap` | Busca puntos de acceso (APs) inalámbricos cercanos. |
+| `scansta` | `scansta` | Busca estaciones y clientes conectados. |
+| `stopscan` | `stopscan` | Detiene inmediatamente cualquier escaneo en curso. |
+| `list` | `list [-a / -s / -c / -t]` | Muestra listas cargadas (`-a` APs, `-s` SSIDs, `-c` Clientes). |
+| `select` | `select -a/-s/-c <indices>` | Selecciona elementos por índice para interactuar. |
+| `clearlist`| `clearlist -a/-c/-s` | Limpia los registros de la memoria RAM. |
+| `ssid` | `ssid -a [-g <count> / -n <name>]` | Agrega SSIDs a la lista (`-g` aleatorios, `-n` específicos). |
+| `sniffraw` | `sniffraw` | Captura y vuelca todos los paquetes raw recibidos. |
+| `sniffbeacon`| `sniffbeacon` | Captura tramas beacon. |
+| `sniffprobe`| `sniffprobe` | Captura peticiones probe request de clientes. |
+| `sniffpwn` | `sniffpwn` | Sniffer enfocado en capturas de handshakes WPA. |
+| `sniffpmkid`| `sniffpmkid [-c <channel>]` | Captura asociaciones PMKID para auditoría WPA2. |
+
+### 💥 Comandos de Ataque WiFi y Bluetooth
+
+| Comando | Sintaxis | Descripción |
+| :--- | :--- | :--- |
+| `attack` | `attack -t <deauth/beacon/probe/rickroll>` | Inicia ataque de desautenticación, spam de beacons, etc. |
+| `blespam` | `blespam -t <apple/google/samsung/windows/all>`| Inicia campañas de spam publicitario Bluetooth BLE. |
+| `sniffbt` | `sniffbt [-t] <airtag/flipper>` | Realiza escaneo e identificación de dispositivos Bluetooth específicos. |
+| `wardrive` | `wardrive [-s]` | Inicia el modo Wardriving clásico sincronizado con GPS. |
+| `btwardrive`| `btwardrive [-c]` | Inicia el modo Wardriving Bluetooth sincronizado con GPS. |
+
+***
+
+## ⚠️ Advertencia de Seguridad
+
+Esta herramienta ha sido diseñada exclusivamente para **fines educativos, pruebas de penetración ética y auditorías de seguridad autorizadas**. 
+
+El uso de este dispositivo para interferir, interceptar o atacar redes e infraestructura ajena sin el consentimiento previo por escrito del propietario es **estrictamente ilegal**. Los desarrolladores y colaboradores no se hacen responsables del uso indebido de esta herramienta ni de los daños que este pueda causar.
+
+***
+**Desarrollado y mantenido por la comunidad de ciberseguridad y Electronic Cats.**
