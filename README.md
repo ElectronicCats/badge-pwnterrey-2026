@@ -1,8 +1,6 @@
-[README_C5.md](https://github.com/user-attachments/files/28228241/README_C5.md)
-
 # Badge PWNTerrey
 
-El **ESP32 Marauder C5 Addon** es un dispositivo de hardware abierto y portátil diseñado para la auditoría de redes inalámbricas y seguridad de radiofrecuencia (WiFi, Bluetooth y NFC). Esta versión utiliza el potente y nuevo chip **ESP32-C5 (Arquitectura RISC-V)**, configurada específicamente para operar en modo **"Headless"** (sin pantalla), permitiendo la interacción total mediante consola serie (CLI) e integrando sensores y emuladores como NFC y GPS externo.
+El **El Badge de Pwnterrey** es un dispositivo de hardware abierto y portátil diseñado para la auditoría de redes inalámbricas y seguridad de radiofrecuencia (WiFi, Bluetooth y NFC). Esta versión utiliza el potente y nuevo chip **ESP32-C5 (Arquitectura RISC-V)**, configurada específicamente para operar en modo **"Headless"** (sin pantalla), permitiendo la interacción total mediante consola serie (CLI) e integrando sensores y emuladores como NFC y GPS externo.
 
 ***
 
@@ -133,6 +131,8 @@ Una vez ejecutado el comando con éxito, cualquier dispositivo móvil o lector N
 ## ⚙️ Configuración y Compilación de Firmware
 
 Si deseas compilar o realizar modificaciones en el firmware, debes seguir estas recomendaciones específicas para el hardware ESP32-C5:
+
+Clonar el [repositorio](https://github.com/ElectronicCats/badge-pwnterrey-2026)
 
 ### 🛠️ Configuración en configs.h
 Asegúrate de que en el archivo [configs.h](file:///run/media/omaro/8C96D9BF96D9AA4A/ESP32Marauder/ESP32Marauder/esp32_marauder/configs.h) la definición activa para la placa sea:
